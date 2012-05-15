@@ -9,12 +9,13 @@ class ChoiceInline(admin.StackedInline):
 class PollAdmin(admin.ModelAdmin):
     fieldsets = [
                 ('Pregunta', {'fields':['question']}),
-                ('Date information',{'fields':['pub_date'],'classes':['collapse']}),
+                ('Data',{'fields':['pub_date'],'classes':['collapse']}),
     ]
-    inLines = [ChoiceInline]
     list_display = ('question', 'pub_date', 'was_published_recently')
     list_filter = ['pub_date']
     search_fields = ['question']
+    inlines = [ChoiceInline]
+    
     
 admin.site.register(Poll,PollAdmin)
 
