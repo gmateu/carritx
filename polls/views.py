@@ -8,7 +8,7 @@ from django.http import Http404
 def index(request):
     latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
     return render_to_response('polls/index.html', 
-            {'latest_poll_list': latest_poll_list})
+            {'llista_preguntes': latest_poll_list})
 
 def detail(request, poll_id):
     #agafa una única poll
