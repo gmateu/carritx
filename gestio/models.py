@@ -10,10 +10,18 @@ class Client(models.Model):
     telefon=models.CharField(max_length=20)
     
 class Familia_Article(models.Model):
+    class Meta:
+        verbose_name="Família d'article"
+        verbose_name_plural="Famílies d'articles"
+    
     descripcio=models.CharField(max_length=200)
     
 class Article(models.Model):
-    familia=models.ForeignKey(Familia_Article,verbose_name="Família d'artible")
+    
+    class Meta:
+        verbose_name_plural="Articles"
+    
+    familia=models.ForeignKey(Familia_Article)
     descripcio=models.CharField(max_length=200)
 
 class Stock(models.Model):
